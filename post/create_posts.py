@@ -57,32 +57,32 @@ mutual = [
 posts = [
     {
         '_id': generate_object_id(),
-        'image_url': healthy[1],
-        'body': 'This is what is getting me bankrupt for real.',
+        'image_url': healthy[4],
+        'body': 'salad tastes pretty good once you add some pizza and get rid of the salad',
         '_p_user': ''
     },
     {
         '_id': generate_object_id(),
-        'image_url': body[1],
-        'body': "No gains only pains",
+        'image_url': body[4],
+        'body': "don't throw hate at me, throw money",
         '_p_user': ''
     },
     {
         '_id': generate_object_id(),
-        'image_url': workout[1],
-        'body': 'Join us @clubSPott',
+        'image_url': workout[4],
+        'body': 'started from the bottom now we a little bit above the bottom',
         '_p_user': ''
     },
     {
         '_id': generate_object_id(),
-        'image_url': mutual[1],
-        'body': 'This is so happening',
+        'image_url': mutual[4],
+        'body': 'lets play a game called are u bad at texting back or do u hate me',
         '_p_user': ''
     },
     {
         '_id': generate_object_id(),
-        'image_url': transformation[1],
-        'body': 'I am that guy doing stupid stuff always.',
+        'image_url': transformation[4],
+        'body': 'i need $$$$$ not feelings',
         '_p_user': ''
     },
 ]
@@ -113,7 +113,8 @@ def get_user_id(first_name):
     return resp.json()[0]['_id']
 
 if __name__ == '__main__':
-    user_id = get_user_id('Lionel')
-    for p in posts:
-        p['_p_user'] = 'User$' + user_id
+    for index, user in enumerate(['Eva', 'Lionel', 'Aziz', 'Stephen', 'Maria']):
+        user_id = get_user_id(user)
+        posts[index]['_p_user'] = 'User$' + user_id
+
     map(insert, posts)
